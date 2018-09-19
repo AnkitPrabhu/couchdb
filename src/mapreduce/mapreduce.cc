@@ -130,7 +130,9 @@ static Platform *v8platform;
 void initV8()
 {
     #ifdef WIN32
-        V8::InitializeICUDefaultLocation("");
+        freopen("testing.txt", "a", stderr);
+        std::cerr<<"DBG: Checks\n";
+        std::cerr<<"DBG: "<<V8::InitializeICUDefaultLocation("");
     #else
         V8::InitializeICU();
     #endif
