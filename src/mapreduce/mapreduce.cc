@@ -129,13 +129,8 @@ static void freeLogResults(map_reduce_ctx_t *ctx);
 static Platform *v8platform;
 void initV8()
 {
-    #ifdef WIN32
-        freopen("testing.txt", "a", stderr);
-        std::cerr<<"DBG: Checks\n";
-        std::cerr<<"DBG: "<<V8::InitializeICUDefaultLocation("");
-    #else
-        V8::InitializeICU();
-    #endif
+    freopen("w.txt", "a", stderr);
+    std::cerr<<"DBG: Testing On Something "<<V8::InitializeICUDefaultLocation("");
     v8platform = platform::CreateDefaultPlatform();
     V8::InitializePlatform(v8platform);
     V8::Initialize();
